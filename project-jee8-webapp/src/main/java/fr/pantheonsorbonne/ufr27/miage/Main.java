@@ -52,7 +52,7 @@ public class Main {
 	public static HttpServer startServer() {
 
 		final ResourceConfig rc = new ResourceConfig()//
-				.packages(true, "fr.pantheonsorbonne.ufr27.miage.resource")//
+				.packages(true, "fr.pantheonsorbonne.ufr27.miage")//
 				.register(DeclarativeLinkingFeature.class)//
 				.register(ExceptionMapper.class)
 				.register(PersistenceConf.class)
