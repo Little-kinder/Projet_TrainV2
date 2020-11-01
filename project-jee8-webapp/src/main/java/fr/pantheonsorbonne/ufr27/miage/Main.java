@@ -52,15 +52,16 @@ public class Main {
 	public static HttpServer startServer() {
 
 		final ResourceConfig rc = new ResourceConfig()//
-				.packages(true, "fr.pantheonsorbonne.ufr27.miage")//
+				.packages(true, "fr.pantheonsorbonne.ufr27.miage.resource")//
 				.register(DeclarativeLinkingFeature.class)//
-				.register(JMSProducer.class).register(ExceptionMapper.class).register(PersistenceConf.class)
+				.register(ExceptionMapper.class)
+				.register(PersistenceConf.class)
 				.register(new AbstractBinder() {
 
 					@Override
 					protected void configure() {
 
-						bind(GymServiceImpl.class).to(GymService.class);
+						/*bind(GymServiceImpl.class).to(GymService.class);
 
 						bind(PaymentServiceImpl.class).to(PaymentService.class);
 						bind(InvoicingServiceImpl.class).to(InvoicingService.class);
@@ -75,7 +76,7 @@ public class Main {
 						bindFactory(PaymentQueueSupplier.class).to(Queue.class).named("PaymentQueue").in(Singleton.class);
 						
 						bind(PaymentProcessorBean.class).to(PaymentProcessorBean.class).in(Singleton.class);
-						bind(PaymentValidationAckownledgerBean.class).to(PaymentValidationAckownledgerBean.class).in(Singleton.class);
+						bind(PaymentValidationAckownledgerBean.class).to(PaymentValidationAckownledgerBean.class).in(Singleton.class);*/
 
 					}
 
@@ -97,11 +98,11 @@ public class Main {
 		SLF4JBridgeHandler.install();
 		final HttpServer server = startServer();
 		
-		BrokerUtils.startBroker();
+		//BrokerUtils.startBroker();
 		
-		PersistenceConf pc = 		new PersistenceConf();
-		pc.getEM();
-		pc.launchH2WS();
+		//PersistenceConf pc = 		new PersistenceConf();
+		//pc.getEM();
+		//pc.launchH2WS();
 		
 		
 		
